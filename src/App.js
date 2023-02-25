@@ -1,23 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
+import React, {useState} from 'react'
+import Title from './component/Title'
+import Home from './pages/Home'
+import Counter from './pages/Counter'
+import About from './pages/About'
 
 function App() {
+
+  const [Ack,SetAck] = useState(true);
+
+  const Change = () => {
+   SetAck(!Ack)   
+ }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      {/* <Title name="Welcome Dhruvil" />
+      <Title name="Greetings from TatvaSoft" />
+      <Title name="Hello" />
+
+      <Home />
+
+      <Counter />
+
+      <About /> */}
+
+      {Ack  ? <Home />  : <About />}
+      <button onClick= { Change }> Change </button>
+
     </div>
   );
 }
